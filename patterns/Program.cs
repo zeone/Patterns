@@ -4,6 +4,7 @@ using patterns.Mediator;
 using patterns.Observer;
 using patterns.Strategy;
 using patterns.TemplateMethod;
+using patterns.Visitor;
 
 namespace patterns
 {
@@ -100,6 +101,20 @@ namespace patterns
             Console.WriteLine(Environment.NewLine);
             #endregion
 
+            #region Visitor
+
+
+            Console.WriteLine("-----------Visitor pattern-------------");
+            var dbSaveLogEntry = new DatabaseLogSaver();
+            var exLogEntry = new ExceptionLogEntry();
+            var simpleLogEntry = new SimpleLogEntry();
+            dbSaveLogEntry.SaveLogEntry(exLogEntry);
+            dbSaveLogEntry.SaveLogEntry(simpleLogEntry);
+
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
+            #endregion
 
             Console.WriteLine("Finish");
             Console.ReadLine();
