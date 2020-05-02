@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace patterns.Observer
+namespace patterns.Behavioral.Observer
 {
     /// <summary>
     /// похож на использование делегата, только здесь передаеться обект который наследуеться от интерфейса и разная его реализация

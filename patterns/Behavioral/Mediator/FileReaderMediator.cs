@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
-namespace patterns.Mediator
+namespace patterns.Behavioral.Mediator
 {
     public class FileReaderMediator
     {

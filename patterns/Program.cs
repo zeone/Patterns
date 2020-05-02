@@ -1,10 +1,10 @@
 ﻿using System;
-using patterns.Iterator;
-using patterns.Mediator;
-using patterns.Observer;
-using patterns.Strategy;
-using patterns.TemplateMethod;
-using patterns.Visitor;
+using patterns.Behavioral.Iterator;
+using patterns.Behavioral.Mediator;
+using patterns.Behavioral.Observer;
+using patterns.Behavioral.Strategy;
+using patterns.Behavioral.TemplateMethod;
+using patterns.Behavioral.Visitor;
 
 namespace patterns
 {

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace patterns.Mediator
+namespace patterns.Behavioral.Mediator
 {
    public class FileSaverMediator
     {

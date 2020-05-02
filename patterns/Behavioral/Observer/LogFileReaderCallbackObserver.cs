@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
-
-namespace patterns.Observer
+namespace patterns.Behavioral.Observer
 {
     /// <summary>
     /// Все очень просто, принимаем делегат который выполняем при нужном состоянии

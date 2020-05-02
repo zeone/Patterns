@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace patterns.Visitor
+namespace patterns.Behavioral.Visitor
 {
     /// <summary>
     /// Суть паттерна в том, что если у насть некий объект но его функционал должен изменяться в зависимости от случая, то мы создаем интерфейс(ILogEntryVisitor)

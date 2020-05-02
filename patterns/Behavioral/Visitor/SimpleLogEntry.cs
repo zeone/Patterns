@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace patterns.Visitor
+﻿namespace patterns.Behavioral.Visitor
 {
     public class SimpleLogEntry : LogEntryVisitor
     {

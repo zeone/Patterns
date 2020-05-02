@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
-namespace patterns.Observer
+namespace patterns.Behavioral.Observer
 {
     public class LogEntryEventArgs : EventArgs
     {

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace patterns.Strategy
+namespace patterns.Behavioral.Strategy
 {
     /// <summary>
     /// ConcreteStrategy

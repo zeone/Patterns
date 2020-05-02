@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace patterns.Observer
+﻿namespace patterns.Behavioral.Observer
 {
     //todo Разобраться с реактивным паттерном
    //public class LogFileReaderLinqObserver

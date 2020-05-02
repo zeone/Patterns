@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using patterns.Strategy;
 
-namespace patterns.TemplateMethod
+namespace patterns.Behavioral.TemplateMethod
 {
     /// <summary>
     /// Template Method
