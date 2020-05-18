@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using patterns.Creational.AbstractFactory;
+using patterns.Creational.FactoryMethod;
 using patterns.Creational.Singleton;
 
 namespace patterns
@@ -28,11 +29,7 @@ namespace patterns
             Console.WriteLine(Environment.NewLine);
 
 
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
-
-            Console.WriteLine("-----------Abstract fabric-------------");
+            Console.WriteLine("-----------Abstract Factory -------------");
             //создаем клиента фабрики
             // передаеться конкретная реализация фабрики
             var warior = new Hero(new WarriorFactory());
@@ -45,6 +42,20 @@ namespace patterns
 
             Console.WriteLine(Environment.NewLine);
 
+            Console.WriteLine("-----------FactoryMethod-------------");
+            var dev = new PanelDeveloper("some panel name");
+            House house1 = dev.Create();
+
+
+            var dev2 = new WoodDeveloper("wood dev name");
+            var house2 = dev2.Create();
+
+            Console.WriteLine(Environment.NewLine);
+
+
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
             #endregion
 
 
