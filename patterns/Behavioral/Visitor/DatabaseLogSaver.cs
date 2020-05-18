@@ -7,6 +7,7 @@ namespace patterns.Behavioral.Visitor
     /// в котором прописываем действия под все необходимые кейсы(ExceptionLogEntry, SimpleLogEntry) и далее, в конкретной реализации класа в котором будут происходиться действия,
     /// мы переопределяем через интерфейс все неоюходимые методы
     /// </summary>
+    // todo: разобратся детальней
     public class DatabaseLogSaver : ILogEntryVisitor
     {
 
