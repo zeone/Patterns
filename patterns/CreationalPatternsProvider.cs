@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using patterns.Creational.AbstractFactory;
+using patterns.Creational.Builder;
 using patterns.Creational.FactoryMethod;
+using patterns.Creational.SimpleFactory;
 using patterns.Creational.Singleton;
 
 namespace patterns
@@ -51,6 +53,35 @@ namespace patterns
             var house2 = dev2.Create();
 
             Console.WriteLine(Environment.NewLine);
+
+            Console.WriteLine("-----------Simple factory-------------");
+            var fanFactory = new FanFactory();
+            fanFactory.CreateFan(FanType.CeilingFan).SwitchOn();
+            fanFactory.CreateFan(FanType.TableFan).SwitchOff();
+            var exhaustFan = fanFactory.CreateFan(FanType.ExhaustFan);
+            exhaustFan.SwitchOn();
+            Console.WriteLine(Environment.NewLine);
+
+            Console.WriteLine("-----------Builder-------------");
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("-----------Simple Builder-------------");
+            var fluentBuilder = new FluentMailMessageBuilder()
+                .To("test@com.ua", "pasha")
+                .Subject("simple test builder")
+                .From("me@com.ua", "me")
+                .Build();
+            Console.WriteLine(fluentBuilder.Subject);
+
+            MailMessage test = new FluentMailMessageBuilder().To("test@com.ua", "pasha").Subject("Неявное преобразование");
+            Console.WriteLine(test.Subject);
+
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("-----------Extensions methods Builder-------------");
+            MailMessage mailMessage = new MailMessage().From("me@com.ua", "me").Subject("extension method builder");
+            Console.WriteLine(mailMessage.Subject);
+
+            Console.WriteLine(Environment.NewLine);
+
 
 
             Console.WriteLine(Environment.NewLine);
