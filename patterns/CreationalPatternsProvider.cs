@@ -29,6 +29,7 @@ namespace patterns
             var staticField = StaticFieldSingleton.Instance;
             staticField.DoAction();
             Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
 
 
             Console.WriteLine("-----------Abstract Factory -------------");
@@ -43,6 +44,8 @@ namespace patterns
             elf.Run();
 
             Console.WriteLine(Environment.NewLine);
+            Console.WriteLine(Environment.NewLine);
+
 
             Console.WriteLine("-----------FactoryMethod-------------");
             var dev = new PanelDeveloper("some panel name");
@@ -60,6 +63,7 @@ namespace patterns
             fanFactory.CreateFan(FanType.TableFan).SwitchOff();
             var exhaustFan = fanFactory.CreateFan(FanType.ExhaustFan);
             exhaustFan.SwitchOn();
+            Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
 
             Console.WriteLine("-----------Builder-------------");
@@ -80,6 +84,7 @@ namespace patterns
             MailMessage mailMessage = new MailMessage().From("me@com.ua", "me").Subject("extension method builder");
             Console.WriteLine(mailMessage.Subject);
 
+            Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
 
 

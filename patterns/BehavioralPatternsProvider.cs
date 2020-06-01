@@ -7,6 +7,7 @@ using patterns.Behavioral.Observer;
 using patterns.Behavioral.Strategy;
 using patterns.Behavioral.TemplateMethod;
 using patterns.Behavioral.Visitor;
+using ExceptionLogEntry = patterns.Behavioral.Visitor;
 
 namespace patterns
 {
@@ -26,7 +27,7 @@ namespace patterns
             logProcessorDelegate.ProcessLogs();
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
+
             #endregion
 
             #region TemplateMethod
@@ -39,7 +40,6 @@ namespace patterns
             logProcDelTemMet.ProcessLogs(() => Console.WriteLine("process data from file delegate"));
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
             #endregion
 
             #region Mediator
@@ -50,7 +50,6 @@ namespace patterns
             importerMediator.ImportFile();
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
             #endregion
 
             #region Iterator
@@ -58,7 +57,6 @@ namespace patterns
             {
                 Console.WriteLine(t.Message);
             }
-            Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
 
@@ -75,7 +73,7 @@ namespace patterns
 
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
+
 
             var logReaderEventObserver = new LogFileReaderEventObserver("test");
             logReaderEventObserver.OnNewLogEntry += (sender, eventArgs) =>
@@ -92,13 +90,11 @@ namespace patterns
 
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
-            Console.WriteLine(Environment.NewLine);
 
             var logReaderObservable = new LogFileReaderInterfaceObservable();
             var logFileReaderInterfaceObserver = new LogFileReaderInterfaceObserver("file name", logReaderObservable);
             logFileReaderInterfaceObserver.DetectThatNewFileWasCreated();
 
-            Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
             #endregion
@@ -108,12 +104,11 @@ namespace patterns
 
             Console.WriteLine("-----------Visitor pattern-------------");
             var dbSaveLogEntry = new DatabaseLogSaver();
-            var exLogEntry = new ExceptionLogEntry();
-            var simpleLogEntry = new SimpleLogEntry();
+            var exLogEntry = new ExceptionLogEntryV();
+            var simpleLogEntry = new SimpleLogEntryV();
             dbSaveLogEntry.SaveLogEntry(exLogEntry);
             dbSaveLogEntry.SaveLogEntry(simpleLogEntry);
 
-            Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine(Environment.NewLine);
             #endregion

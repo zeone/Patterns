@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>patterns</name>
+    </assembly>
+    <members>
+        <member name="T:patterns.Behavioral.Iterator.LogFileSourceIterator">
+            <summary>
+            Iterator
+            паттерн позволяет содавать кастомные перечисляемые для разных задачь, далее использовать в циклах как форич
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Mediator.ImporterMediator">
+            <summary>
+            Mediator
+            Паттерн комбинирует в себе логику разных объектов  таким обрадом делая их независимыми друг от друга
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Observer.LogFileReaderCallbackObserver">
+            <summary>
+            Все очень просто, принимаем делегат который выполняем при нужном состоянии
+            </summary>
+        </member>
+        <member name="M:patterns.Behavioral.Observer.LogEntryEventArgs.#ctor(System.String)">
+            <summary>
+            подписываемся на события и выполняем код со стороны наблюдателя
+            </summary>
+            <param name="longEntrie"></param>
+        </member>
+        <member name="M:patterns.Behavioral.Observer.LogFileReaderEventObserver.CheckFile">
+            <summary>
+            вызов сделал снаружи, по сути должна быть внутренняя логика выхова этого метода
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Observer.ILogFileReaderObserver">
+            <summary>
+            похож на использование делегата, только здесь передаеться обект который наследуеться от интерфейса и разная его реализация
+            </summary>
+        </member>
+        <member name="M:patterns.Behavioral.Observer.LogFileReaderInterfaceObserver.DetectThatNewFileWasCreated">
+            <summary>
+            вызов сделал снаружи, по сути должна быть внутренняя логика выхова этого метода
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Observer.LogFileReaderInterfaceObservable">
+            <summary>
+            конкретная реализация наблюдателя
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Strategy.ILogReader">
+            <summary>
+            Strategy
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Strategy.LogFileReaderStrategy">
+            <summary>
+            ConcreteStrategy
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Strategy.LogProcessorStrategyDelegate">
+            <summary>
+            CONTEXT
+            паттерн стратегия
+            Суть в том что есть у нас есть некий общий функционал(поведение), но при этом он может использоваться по разному, то при помощи интерфейса или делегата
+            мы можем переопределять его поведение
+            Если просто, то у нас есть некий клас который должен например записывать логи, но источники могут быть разные,
+            по этому при помощи делегата либо интерфейса мы можем указать как получить нужные данные и привести их к общему типу с которым уже и будет работать наш класс
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Strategy.LogProcessorStrategyInterface">
+            <summary>
+            CONTEXT
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Strategy.LogWindowsEventReaderStrategy">
+            <summary>
+            ConcreteStrategy
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.TemplateMethod.LogProcessorTemplMet">
+            <summary>
+            Template Method
+            позволяет описать основное поведения в базовом класе, при этом часть алгоритма выноситься в наследники или делегат
+            похож на паттерн стратегия
+            </summary>
+        </member>
+        <member name="M:patterns.Behavioral.TemplateMethod.LogProcessorTemplMet.ReadFile">
+            <summary>
+            объявлен как виртуал чтобы можно было переопределить в юнит тестах
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.TemplateMethod.LogProcessorDelegateTemplMet">
+             <summary>
+             Template Method
+            вместо абстрактного метода и наследования, будет использовать делегат
+             </summary>
+        </member>
+        <member name="M:patterns.Behavioral.TemplateMethod.LogProcessorDelegateTemplMet.ProcessLogs(System.Action)">
+            <summary>
+            принимает делегат вместо абстрактного метода
+            </summary>
+            <param name="doSomething"></param>
+        </member>
+        <member name="M:patterns.Behavioral.TemplateMethod.LogProcessorDelegateTemplMet.ReadFile">
+            <summary>
+            объявлен как виртуал чтобы можно было переопределить в юнит тестах
+            </summary>
+        </member>
+        <member name="T:patterns.Behavioral.Visitor.DatabaseLogSaver">
+            <summary>
+            Суть паттерна в том, что если у насть некий объект но его функционал должен изменяться в зависимости от случая, то мы создаем интерфейс(ILogEntryVisitor)
+            в котором прописываем действия под все необходимые кейсы(ExceptionLogEntry, SimpleLogEntry) и далее, в конкретной реализации класа в котором будут происходиться действия,
+            мы переопределяем через интерфейс все неоюходимые методы
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.AbstractFactory.ElfFactory">
+            <summary>
+            Фабрика создания летящего героя с арбалетом
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.AbstractFactory.Hero">
+            <summary>
+            клиент - сам супергерой
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.AbstractFactory.HeroFactory">
+             <summary>
+             Абстрактный класс фабрики
+            
+             Суть абстрактной фабрики состоит в том, то если у нас есть нейкий обобщенный функционал, но возможна разная реализация(поведение)
+             Например:
+             для работы с бд мы можем реализовать абстрактную фабрику, при этом не нужно привязываться к конкретному типу бд
+             создаеться абстрактный класс фабрики
+             от него создаються конкретные реализации
+             в клиент принивает тип абстрактной фабрики и в зависимости от реализации будет иметь поведение
+             клиентом пользуемся в работе
+             </summary>
+        </member>
+        <member name="T:patterns.Creational.AbstractFactory.WarriorFactory">
+            <summary>
+            Фабрика создания бегущего героя с мечом
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.Builder.ExMailMessageBuilder">
+            <summary>
+            Реализация строителя при помощи методов расширения
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.Builder.FluentMailMessageBuilder">
+             <summary>
+             Строитель используеться для возвращения объекта с большим количеством опциональных полей
+             В результате мы определяем только нужные и все
+            
+             данный строитель явлеться паттерном fuent(interface)builder. отличаеться от обычного тем что в обычном у нас есть абстрактный класс строителя
+             и конкретные строители (через прослойку, не нужно создавать методы которые будут возвращать разные реализации строителей
+             например: абстрактный клас имеет 2 метода, CreateWith attachment и CreateWithoutAttachment. Нам надо было бы реализовать строитель для сообщения. передать его 
+             в конкретный клас реализованный от абстрактного, и кнутри реализовать эти 2 метода).
+             То здесь мы просто используем только точ то нужну при создании объекта.
+             Упрощает код и не нужно городить прослойки
+             </summary>
+        </member>
+        <member name="T:patterns.Creational.FactoryMethod.Developer">
+            <summary>
+            Если логика создания обьекта сложная, либо требует выполнения доп операций, а использовать конструктор не лучшая идея,
+            то используеться данный паттерн
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.SimpleFactory.FanFactory">
+            <summary>
+            Суть простой фабрики в том что если создание объекта сложное,
+            либо нужна преинициализация, либо мы возвращаем разные обьекты но все приведенные к одному интерфейсу
+            то создаеться промежуточный класс(фабрика) в котором определяеться метод принимающий необходимые аргументы.
+            внутри фабрики мы создаем и производим необходимые операции над объектом и возвращаем его
+            какие вопросы решает
+            например, если бы у нас был 1 вентилятор, то мы бы могли просто вызвать конструктор new Fan(); но если добавляються типы вантиляторов
+            то конструктор будет усложняться new Fan(enineType, fanType) и т.д.. Класс Fan и его конструктор будут все более громоздкими.
+            выход в даном случае фабрика. ДЛя разных типов вентиляторов у нас создаються разные классы(объекы). При том все они имеют общий функционал
+            по этому лдя всех типов вентиляторов мы используем 1 интерфейс, а в фабриве создает метод который будет принимать тип вентилятора, и возвращать нам нужный
+            кроме того если над объектами нужно провести какието дополнительные операции инициализации, то это мы можем сделать в фабрике и вернуть уже готовый для работы объект
+            </summary>
+        </member>
+        <member name="T:patterns.Creational.Singleton.LazySingleton">
+            <summary>
+            простая реализация сингтона с ленивостью и потокобезопасностью
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Adapter.ElasticSearchLogSaver">
+            <summary>
+            Adaptee
+            <remarks>
+            Конкретный функционал для работы с еластиксом
+            </remarks>  
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Adapter.ElasticSearchLogSaverAdapter">
+            <summary>
+            Adapter
+            <remarks>
+            Конкретный адаптер для использования ElasticSearchLogSaver
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Adapter.ILogSaver">
+            <summary>
+            Target
+            <remarks>
+            Целевой интерфейс к через который будут работать и к которому будут преобразованы существующие класы 
+            </remarks>
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Adapter.SqlLogSaver">
+            <summary>
+            Adaptee
+            <remarks>
+            Конкретный функционал для работы с sql
+            </remarks>  
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Adapter.SqlServerLogSaverAdapter">
+            <summary>
+            Adapter
+            <remarks>
+            Конкретный адаптер для использования SqlServerLogSaver
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:patterns.Structural.Decorator.ElasticLogSaver.SaveLogEntry(System.String,patterns.LogEntry)">
+            <summary>
+            Concrete Component
+            </summary>
+            <remarks>Конкретная реализация компонента</remarks>
+            <param name="appId"></param>
+            <param name="logEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="T:patterns.Structural.Decorator.ILogSaver">
+            <summary>
+            Component
+            <remarks>
+            Базовый класс компонента, чье поведение будет расширяться декораторами
+            </remarks>
+            </summary>
+        </member>
+        <member name="F:patterns.Structural.Decorator.LogSaverDecorator._decoratee">
+            <summary>
+            Decorator
+            <remarks>
+            Базовый класс декоратора, предназначенный для расширения поведения компонента 
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:patterns.Structural.Decorator.ThrottlingLogSaverDecorator.#ctor(patterns.Structural.Decorator.ILogSaver)">
+            <summary>
+            Concrete decorator
+            <remarks>
+            Реализация декоратора
+            добавляет к декорируему обьетку специфическое поведение 
+            </remarks>
+            </summary>
+            <param name="logSaver"></param>
+        </member>
+        <member name="T:patterns.Structural.Decorator.TraceServerDecorator">
+            <summary>
+            Concrete decorator
+            <remarks>
+            Реализация декоратора
+            добавляет к декорируему обьетку специфическое поведение 
+            </remarks>
+            </summary>
+            <param name="logSaver"></param>
+        </member>
+        <member name="M:patterns.Structural.Facade.SqlServer.InitConnection(System.String)">
+            <summary>
+            Пример сложного класса
+            </summary>
+            <param name="connStr"></param>
+        </member>
+        <member name="T:patterns.Structural.Facade.SqlServerFacade">
+            <summary>
+            Facade
+            <remarks>
+            Агрегирует сложные интерфейсы, и оставляет только нужные операции
+            </remarks>
+            </summary>
+        </member>
+    </members>
+</doc>

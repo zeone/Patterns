@@ -2,7 +2,7 @@
 {
    public interface ILogEntryVisitor
    {
-       void Visit(ExceptionLogEntry exceptionLogEntry);
-       void Visit(SimpleLogEntry simpleLogEntry);
+       void Visit(ExceptionLogEntryV exceptionLogEntry);
+       void Visit(SimpleLogEntryV simpleLogEntry);
    }
 }

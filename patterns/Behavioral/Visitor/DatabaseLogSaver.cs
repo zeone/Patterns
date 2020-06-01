@@ -16,23 +16,23 @@ namespace patterns.Behavioral.Visitor
             logEntry.Accept(this);
         }
 
-        void ILogEntryVisitor.Visit(ExceptionLogEntry exceptionLogEntry)
+        void ILogEntryVisitor.Visit(ExceptionLogEntryV exceptionLogEntry)
         {
             SaveException(exceptionLogEntry);
         }
 
-        void ILogEntryVisitor.Visit(SimpleLogEntry simpleLogEntry)
+        void ILogEntryVisitor.Visit(SimpleLogEntryV simpleLogEntry)
         {
             SaveSimpleLogEntry(simpleLogEntry);
         }
 
-        private void SaveSimpleLogEntry(SimpleLogEntry simpleLogEntry)
+        private void SaveSimpleLogEntry(SimpleLogEntryV simpleLogEntry)
         {
             Console.WriteLine("Saved simple");
         }
 
 
-        private void SaveException(ExceptionLogEntry exceptionLogEntry)
+        private void SaveException(ExceptionLogEntryV exceptionLogEntry)
         {
             Console.WriteLine("Saved exception");
         }
