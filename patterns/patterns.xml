@@ -224,6 +224,19 @@
             </remarks>
             </summary>
         </member>
+        <member name="T:patterns.Structural.Composite.Component">
+            <summary>
+            Базовый класс Компонент объявляет общие операции как для простых, так и
+            для сложных объектов структуры.
+            </summary>
+        </member>
+        <member name="T:patterns.Structural.Composite.Composite">
+            <summary>
+            Класс Контейнер содержит сложные компоненты, которые могут иметь
+            вложенные компоненты. Обычно объекты Контейнеры делегируют фактическую
+            работу своим детям, а затем «суммируют» результат.
+            </summary>
+        </member>
         <member name="M:patterns.Structural.Decorator.ElasticLogSaver.SaveLogEntry(System.String,patterns.LogEntry)">
             <summary>
             Concrete Component
